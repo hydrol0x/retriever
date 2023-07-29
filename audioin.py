@@ -27,6 +27,7 @@ def record_audio(threshold=0.005, fs=44100, duration=2):
                     input_device_index=0,
                     stream_callback=callback)
     stream.start_stream()
+    print(f"Recording audio...")
 
     count = 0  # sets a delay
     while stream.is_active():
@@ -34,7 +35,8 @@ def record_audio(threshold=0.005, fs=44100, duration=2):
         rms = np.sqrt(np.mean(buffer**2))
         
         # If the RMS is below the threshold and the , stop recording
-        if count > 5 and rms < threshold:
+        print(f"[INFO] RMS: {rms}")
+        if count > 10 and rms < threshold:
             print("Running commands... TEST")
             break
         
@@ -55,12 +57,3 @@ def record_audio(threshold=0.005, fs=44100, duration=2):
     # Return the full recorded audio as well as the buffer
     return full_audio
 
-def write_audio_to_file(full_audio, filename, fs=44100):
-    # Scale the audio data to the range of int16, which is the format used for WAV files
-    scaled_audio = np.int16(full_audio / np.max(np.abs(full_audio)) * 32767)
-    
-    # Write the audio data to a WAV file
-    wavfile.write(filename, fs, scaled_audio)
-
-full_audio = record_audio()
-write_audio_to_file(full_audio, './output.wav')
