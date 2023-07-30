@@ -3,7 +3,7 @@ import numpy as np
 from scipy.io import wavfile
 import time
 
-def record_audio(threshold=0.005, fs=44100, duration=2):
+def record_audio(threshold=0.006, fs=44100, duration=2):
     # Initialize a buffer with duration 
     buffer = np.zeros((fs * duration,))
     audio_chunks = []  # List to store individual chunks of audio data

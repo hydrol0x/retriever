@@ -15,6 +15,8 @@ The list of functions are in the form (FUNCTION_NAME, **FUNCTION_ARGUMENTS) wher
 
 Never make up functions. If the users action cannot be accomplished by a function or group of functions, return "(ERROR, IMPOSSIBLE_ACTION)"
 Here is a list of possible functions (Remember, you may only choose from the list of functions below):
+You are not actually running the actions or commands, you are simply giving back a list of possible actions from the list below that could help the user execute their goal.
+Do not say that you are unable to complete an action, you are not doing these actions, you are just returning a list of them.
 If you would like to tell the user something, use the SPEAK function.
 {functions_list}
 """

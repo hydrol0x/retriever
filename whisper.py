@@ -24,6 +24,12 @@ def call_whisper_api(audio_stream: np.ndarray) -> None:
     transcript = openai.Audio.transcribe("whisper-1", audio_file)
     return transcript
 
-audio = record_audio()
-transcript = call_whisper_api(audio_stream=audio)
-print(transcript)
+def transcribe_mic_input():
+    audio = record_audio()
+    transcript = call_whisper_api(audio_stream=audio)
+    print(f"audio transcript: {transcript}")
+    return transcript
+if __name__ == "__main__":
+    audio = record_audio()
+    transcript = call_whisper_api(audio_stream=audio)
+    print(transcript)
