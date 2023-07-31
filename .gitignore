@@ -5,3 +5,4 @@ notepadtest.au3
 __pycache__
 service_account.json
 *.png
+*.pickle
