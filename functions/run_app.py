@@ -53,7 +53,6 @@ def open_program(program_name):
     if not Path(programs_file).exists():
         update_programs_list(programs_file)
     programs = unpack_pickle_file(programs_file)
-    print(programs)
 
     # Find the best match for the program name.
     best_match, score = process.extractOne(program_name, list(programs.keys()))

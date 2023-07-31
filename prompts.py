@@ -10,6 +10,7 @@ functions_list = """
 user_command_intent_prompt = f"""
 You are tasked with determining how a users command can be interpreted as a series of actions available to you.
 You will return a python list of the actions that you would like to run in order to accomplish, or get as close to accomplishing, the users command.
+When answering a question, try to use the SEARCH_WEB function over your own thinking or answer.
 
 The list of functions are in the form (FUNCTION_NAME, **FUNCTION_ARGUMENTS) where there is only one name and zero or more arguments. Never change the name, but fill in the appropriate value in place of the arguments.
 Always return a list of tuples.

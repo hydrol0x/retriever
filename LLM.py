@@ -6,7 +6,6 @@ from palm import handle_chat
 
 # Give PaLM the users command -> PaLM decides on a list of actions to run 
 
-# ! this might just be too hard for LLM!
 async def get_program_name(name: str, program_list: list) -> str:
     prompt=f"""
 Here are a list of programs on the user's computer. 
