@@ -8,6 +8,7 @@ from browser import run_web_search
 from send_email import open_mail_app_with_start_menu
 from notepad import open_notepad_and_type
 from settings import open_settings
+from file_explorer import get_file
 import os
 
 from dotenv import load_dotenv
@@ -54,6 +55,9 @@ while run:
             elif tup[0] == "SEND_EMAIL":
                 say("Sending an email")
                 open_mail_app_with_start_menu(subject=tup[1], recipient=tup[2], body=tup[3])
+            elif tup[0] == "GET_FILE":
+                say("Searching for your file")
+                get_file(tup[1])
             elif tup[0] == "NOTE":
                 say("I've written that down")
                 open_notepad_and_type(tup[1]) 
