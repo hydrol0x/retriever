@@ -5,6 +5,7 @@ import ast
 from functions.run_app import open_program
 from elevenlabs import play, generate, set_api_key
 from browser import run_web_search
+from send_email import open_mail_app_with_start_menu
 import os
 
 from dotenv import load_dotenv
@@ -28,6 +29,8 @@ while True:
     resp = resp.replace("))", ")")
     if resp[-1] != "]":
         resp+="]"
+    if resp[0] != "[":
+        resp = "[" + resp
     print(resp)
     resp = ast.literal_eval(resp)
     print(resp)
@@ -42,6 +45,8 @@ while True:
         elif tup[0] == "SEARCH_WEB":
             result = run_web_search(tup[1])
             say(result)
+        elif tup[0] == "SEND_EMAIL":
+            open_mail_app_with_start_menu(subject=tup[1], recipient=tup[2], body=tup[3])
         elif tup[0] == "ERROR":
             say("Sorry, I couldn't get that.")
             print("ERROR")

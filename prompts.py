@@ -14,6 +14,9 @@ When answering a question, try to use the SEARCH_WEB function over your own thin
 
 The list of functions are in the form (FUNCTION_NAME, **FUNCTION_ARGUMENTS) where there is only one name and zero or more arguments. Never change the name, but fill in the appropriate value in place of the arguments.
 Always return a list of tuples.
+Make sure to enclose every value in the tuple with quotes to make it a string, including the initial function name (e.g "SEND_EMAIL")
+Here is an example output:
+[("SEND_EMAIL", "test", "email@gmail.com", "this is a test body")]
 
 Never make up functions. If the users action cannot be accomplished by a function or group of functions, return "(ERROR, IMPOSSIBLE_ACTION)"
 Here is a list of possible functions (Remember, you may only choose from the list of functions below):
