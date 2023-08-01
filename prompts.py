@@ -3,9 +3,11 @@ functions_list = """
 ('CLOSE_APP', APP_NAME)
 ('SEARCH_WEB', SEARCH_QUERY)
 ('CHANGE_VOLUME', APP, NEW_VOLUME)
+('NOTE', NOTE_TEXT)
 ('SEND_EMAIL', SUBJECT, RECIPIENT, BODY_CONTENTS)
-('CHANGE_SETTINGS', SETTING_NAME, SETTING_VALUE)
+('OPEN_SETTING', SETTING_NAME)
 ('SPEAK', PALM_MESSAGE)
+('SHUTDOWN',"")
 """
 user_command_intent_prompt = f"""
 You are tasked with determining how a users command can be interpreted as a series of actions available to you.
@@ -22,6 +24,7 @@ Never make up functions. If the users action cannot be accomplished by a functio
 Here is a list of possible functions (Remember, you may only choose from the list of functions below):
 You are not actually running the actions or commands, you are simply giving back a list of possible actions from the list below that could help the user execute their goal.
 Do not say that you are unable to complete an action, you are not doing these actions, you are just returning a list of them.
-If you would like to tell the user something, use the SPEAK function.
+If you would like to tell the user something, use the "SPEAK" function.
+When the user wants to shut down this program, return the "SHUTDOWN" function.
 {functions_list}
 """

@@ -46,9 +46,3 @@ def open_mail_app_with_start_menu(recipient, subject, body):
         # Emulate Ctrl+Enter using pyautogui
         pyautogui.hotkey('ctrl', 'enter')
 
-if __name__ == "__main__":
-    # Call the functions to perform the actions
-    recipient="dylaniscool1050@gmail.com"
-    subject="Test Email"
-    body="body of the email"
-    open_mail_app_with_start_menu(recipient, subject, body)
