@@ -26,8 +26,11 @@ def get_result_contents(url):
     else:
         return None
 
-async def summarize_content(content):
-    prompt=f"""Please summarize the following content into 1 concise paragraph. The paragraph shouldn't exceed 5 sentences.
+async def summarize_content(content, question):
+    prompt=f"""Please summarize the following content into 1 concise paragraph. The paragraph shouldn't exceed 5 sentences. The summary should also try to answer the users question.
+
+Question:
+{question}
 
 Content:
 {content}
@@ -42,7 +45,7 @@ def run_web_search(query):
     if results:
         contents = get_result_contents(results[2])
         if contents:
-            summary = asyncio.run(summarize_content(contents))
+            summary = asyncio.run(summarize_content(contents, query))
             return summary['response']
     else:
         return None
@@ -62,4 +65,4 @@ if __name__ == "__main__":
     #         print(summary)
     # else:
     #     print("No results found.")
-    print(run_web_search("What is ChatGPT?"))
+    print(run_web_search("When was NSDA nationals 2023?"))
