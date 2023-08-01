@@ -1,6 +1,8 @@
 """
 All fns to run a prompt through PaLM
 """
+import os
+import json
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from google.auth import credentials
@@ -8,7 +10,9 @@ from google.oauth2 import service_account
 import google.cloud.aiplatform as aiplatform
 from vertexai.preview.language_models import ChatModel, InputOutputTextPair
 import vertexai
-import json  # add this line
+
+# Change the working directory to the directory of the script
+os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
 # Load the service account json file
 # Update the values in the json file with your own
@@ -30,7 +34,6 @@ aiplatform.init(
 with open(p_service_acct, encoding="utf-8") as f:
     project_json = json.load(f)
     project_id = project_json["project_id"]
-
 
 # Initialize Vertex AI with project and location
 vertexai.init(project=project_id, location="us-central1")
