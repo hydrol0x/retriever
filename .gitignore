@@ -1,9 +1,0 @@
-.gitignore
-.env
-notepadtest.au3
-*.wav
-__pycache__
-service_account.json
-*.png
-*.pickle
-*.log
